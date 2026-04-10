@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Navbar, Footer } from './components/Layout';
 import Hero from './components/Hero';
 import UploadSection from './components/UploadSection';
 import ResultCard from './components/ResultCard';
-import Documentation from './components/Documentation';
+
 
 function App() {
-  const [page, setPage] = useState('home'); // 'home' or 'docs'
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -24,7 +24,7 @@ function App() {
       />
       
       <nav className="flex justify-between items-center px-8 py-6 glass sticky top-0 z-50 shadow-lg backdrop-blur-md">
-        <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setPage('home')}>
+        <div className="flex items-center gap-2 group cursor-pointer">
           <div className="p-2 glass rounded-lg bg-medical-primary/20 group-hover:bg-medical-primary/40 transition-all duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-microscope w-6 h-6 text-medical-primary"><path d="M6 18h8"/><path d="M3 22h18"/><path d="m14 22-.767-2.044a.5.5 0 0 0-.466-.323h-1.534a.5.5 0 0 0-.466.323L10 22"/><path d="M15 12a3 3 0 1 0-6 0"/><path d="M12 9V5"/><path d="M12 3a3 3 0 1 0 0 6 3 3 0 1 0 0-6Z"/><path d="M9 20H5a2 2 0 0 1-2-2V5"/><path d="M11 15h2"/></svg>
           </div>
@@ -34,15 +34,12 @@ function App() {
           </div>
         </div>
         <div className="flex gap-8 items-center text-sm font-medium text-gray-300">
-          <button onClick={() => setPage('home')} className={`hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter ${page === 'home' ? 'text-medical-primary' : ''}`}>
+          <span className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter text-medical-primary">
              Diagnostic
-          </button>
-          <button onClick={() => setPage('docs')} className={`hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter ${page === 'docs' ? 'text-medical-primary' : ''}`}>
+          </span>
+          <a href="/documentation" className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter">
              Documentation
-          </button>
-          <button className="px-5 py-2 glass rounded-full text-medical-primary hover:bg-medical-primary hover:text-white transition-all duration-300 border-medical-primary uppercase text-xs tracking-widest font-bold hidden md:block">
-            Access Portal
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -53,8 +50,6 @@ function App() {
              <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-medical-accent/5 rounded-full blur-[150px]" />
           </div>
 
-          {page === 'home' ? (
-            <>
               <Hero />
               
               <div className="container mx-auto px-6 py-20">
@@ -76,10 +71,6 @@ function App() {
                 <UploadSection />
                 <ResultCard />
               </div>
-            </>
-          ) : (
-            <Documentation onBack={() => setPage('home')} />
-          )}
       </div>
 
       <Footer />

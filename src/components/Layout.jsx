@@ -19,9 +19,7 @@ export const Navbar = () => (
       <a href="#" className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter">
         <ShieldCheck className="w-4 h-4" /> Compliance
       </a>
-      <button className="px-5 py-2 glass rounded-full text-medical-primary hover:bg-medical-primary hover:text-white transition-all duration-300 border-medical-primary uppercase text-xs tracking-widest font-bold">
-        Access Portal
-      </button>
+
     </div>
   </nav>
 );
