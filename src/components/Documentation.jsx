@@ -46,6 +46,14 @@ const STAGES = [
 ];
 
 export default function Documentation({ onBack }) {
+  const goBack = () => {
+    if (typeof onBack === 'function') {
+      onBack();
+      return;
+    }
+    document.getElementById('detection')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -54,7 +62,7 @@ export default function Documentation({ onBack }) {
       className="container mx-auto px-6 py-20"
     >
       <button 
-        onClick={onBack}
+        onClick={goBack}
         className="flex items-center gap-2 text-gray-500 hover:text-medical-primary transition-colors mb-12 uppercase text-xs font-bold tracking-widest"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Analysis
@@ -110,7 +118,7 @@ export default function Documentation({ onBack }) {
             Our enterprise-grade AI is ready to assist in detecting signs across all clinical stages with high precision.
          </p>
          <button 
-           onClick={onBack}
+           onClick={goBack}
            className="px-10 py-5 bg-medical-primary text-white rounded-2xl font-bold hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] transition-all flex items-center gap-2 mx-auto uppercase text-sm tracking-widest"
          >
             Start Analysis <ArrowRight className="w-5 h-5" />

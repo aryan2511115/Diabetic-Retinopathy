@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Navbar, Footer } from './components/Layout';
+import { Footer } from './components/Layout';
 import Hero from './components/Hero';
 import UploadSection from './components/UploadSection';
 import ResultCard from './components/ResultCard';
+import Documentation from './components/Documentation';
 
 
 function App() {
@@ -34,10 +35,10 @@ function App() {
           </div>
         </div>
         <div className="flex gap-8 items-center text-sm font-medium text-gray-300">
-          <span className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter text-medical-primary">
+          <a href="#detection" className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter text-medical-primary">
              Diagnostic
-          </span>
-          <a href="/documentation" className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter">
+          </a>
+          <a href="#documentation" className="hover:text-medical-primary transition-colors flex items-center gap-1.5 uppercase tracking-tighter">
              Documentation
           </a>
         </div>
@@ -52,7 +53,7 @@ function App() {
 
               <Hero />
               
-              <div className="container mx-auto px-6 py-20">
+              <div id="detection" className="container mx-auto px-6 py-20">
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -71,6 +72,10 @@ function App() {
                 <UploadSection />
                 <ResultCard />
               </div>
+
+              <section id="documentation" className="pb-20">
+                <Documentation />
+              </section>
       </div>
 
       <Footer />
@@ -79,3 +84,4 @@ function App() {
 }
 
 export default App;
+

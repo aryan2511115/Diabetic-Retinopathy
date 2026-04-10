@@ -15,9 +15,9 @@ export default function Hero() {
 
           <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 mb-0 mt-0 text-white">
             <span className="bg-gradient-to-r from-medical-primary to-medical-accent bg-clip-text text-transparent">
-              Diabetic Retinopathy
+              Diabetic Retinopathy Detection
             </span>
-            Detection
+            
           </h1>
           <p className="text-lg text-gray-400 mb-10 max-w-lg">
             Upload high-resolution retinal fundus images and receive instant, 

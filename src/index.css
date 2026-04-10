@@ -62,3 +62,6 @@ body {
   box-shadow: 0 0 15px #0ea5e9;
   animation: scan 2s linear infinite;
 }
+
+html { scroll-behavior: smooth; }
+
